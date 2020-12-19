@@ -2,6 +2,8 @@
 // Implementation of Teacher
 ////////////////////////////
 
+
+// Naming package
 package class_pac;
 
 // Teacher
@@ -21,6 +23,7 @@ public class Teacher extends Person {
     }
 
     // Print
+    @Override
     public void print() {
         System.out.print("The Teacher is: ");
         super.print();
