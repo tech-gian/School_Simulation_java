@@ -11,7 +11,7 @@ package class_pac;
 public class Senior extends Student {
     
     // Constructor
-    Senior(String name, int nf, int nc) {
+    public Senior(String name, int nf, int nc) {
         super(name, nf, nc);
 
         System.out.println("A New Senior has been created!");
@@ -19,14 +19,14 @@ public class Senior extends Student {
 
     // Attend Senior
     @Override
-    void attend(int N, int L) {
+    public void attend(int N, int L) {
         this.tired += (N * L);
     }
 
     // Print
     // CHECK maybe you should just inherit
     @Override
-    void print() {
+    public void print() {
         super.print();
     }
 }

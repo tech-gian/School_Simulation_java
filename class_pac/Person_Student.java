@@ -50,27 +50,7 @@ abstract class Person {
     int get_tired() { return this.tired; }
 
     // Set in_cls
-    void set_cls() { this.in_cls = true; }
-}
-
-
-
-// Student
-abstract class Student extends Person {
-
-    // Constructor
-    Student(String name, int nf, int nc) {
-        super(name, nf, nc);
-
-        System.out.println("A New Student has been created!");
-    }
-
-    // Attend
-    void attend(int N, int L) {}
-
-    // CHECK it doesnt need
-    // Print
-    // @Override
-    // void print()
-    //     super.print()
+    void set_in() { this.in_cls = true; }
+    // Set out_cls
+    void set_out() { this.in_cls = false; }
 }

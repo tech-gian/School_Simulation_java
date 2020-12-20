@@ -138,12 +138,24 @@ class Classroom {
     // Enter student in classroom
     void enter(Student s) {
         if (size < Cclass) {
-            s.set_cls();
+            s.set_in();
             this.students[size] = s;
             this.size++;
         }
 
         System.out.println(s.get_name() + " enters classroom");
+    }
+
+    // Exit student from classroom
+    Student exit() {
+        if (size <= 0) return null;
+
+        Student s = students[--size];
+        s.set_out();
+
+        System.out.println(s.get_name() + " starts exiting");
+        System.out.println(s.get_name() + " exits classroom");
+        return s;
     }
 
     // Place teacher in classroom
@@ -200,7 +212,7 @@ class Floor {
         System.out.println("A New Floor has been created!");
     }
 
-    // Enter student in Floor
+    // Enter student in floor
     void enter(Student s) {
         System.out.println(s.get_name() + " enters floor");
 
@@ -208,6 +220,16 @@ class Floor {
         s = corridor.exit();
 
         classes[s.get_cls()].enter(s);
+    }
+
+    // Exit student from floor
+    Student exit(int cls_no) {
+        Student s = classes[cls_no].exit();
+        corridor.enter(s);
+        s = corridor.exit();
+
+        // If temp == null return null
+        return s;
     }
 
     // Place teacher in floor
