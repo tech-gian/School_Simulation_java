@@ -19,9 +19,6 @@ public abstract class Student extends Person {
     // Attend
     void attend(int N, int L) {}
 
-    // CHECK it doesnt need
-    // Print
-    // @Override
-    // void print()
-    //     super.print()
+    // Print for Student is the same as Person's
+    // So that method is public
 }

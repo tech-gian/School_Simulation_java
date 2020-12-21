@@ -65,18 +65,25 @@ public class School {
 
     // Empty school
     public void empty() {
+        // Empty Students
         for (int i=0 ; i<3 ; ++i) {
-            for (int j=0 ; j<floors[i].get_ccls() ; ++j) {
-                Student s = floors[i].exit(j/6);
+            for (int k=0 ; k<6 ; ++k) {
+                for (int j=0 ; j<floors[i].get_ccls() ; ++j) {
+                    Student s = floors[i].exit(k);
 
-                stairs.enter(s);
-                s = stairs.exit();
+                    stairs.enter(s);
+                    s = stairs.exit();
 
-                yard.enter(s);
-                s = yard.exit();
+                    yard.enter(s);
+                    s = yard.exit();
+                }
+            }
+        }
 
-                // CHECK everything and write for teachers
-                // CHECK j/6, it is wrong
+        // Empty Teachers
+        for (int i=0 ; i<3 ; ++i) {
+            for (int j=0 ; j<6 ; ++j) {
+                this.floors[i].teacher_out(j);
             }
         }
     }

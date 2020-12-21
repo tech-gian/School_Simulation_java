@@ -1,1 +1,7 @@
-CREATE launch.json file, so you can run with arguments
+CHECK empty that works fine
+
+CHECK everything
+
+comment the code
+
+write README

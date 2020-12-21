@@ -33,7 +33,7 @@ abstract class Person {
 
 
     // Print
-    void print() {
+    public void print() {
         System.out.println(this.name + " " + this.tired);
     }
 

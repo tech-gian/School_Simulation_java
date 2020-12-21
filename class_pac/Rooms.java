@@ -166,6 +166,16 @@ class Classroom {
         System.out.println(t.get_name() + " places in classroom");
     }
 
+    // Teacher_out
+    Teacher teacher_out() {
+        if (teacher == null) return null;
+
+        System.out.println(teacher.get_name() + " teacher is out");
+
+        teacher.set_out();
+        return teacher;
+    }
+
     // Operate classroom
     void operate(int N, int Lj, int Ls, int Lt) {
         if (teacher != null) this.teacher.teach(N, Lt);
@@ -237,6 +247,11 @@ class Floor {
         this.classes[t.get_cls()].place(t);
     }
 
+    // Teacher_out
+    Teacher teacher_out(int cls_no) {
+        return this.classes[cls_no].teacher_out();
+    }
+
     // Operate floor
     void operate(int N, int Lj, int Ls, int Lt) {
         for (int i=0 ; i<6 ; ++i) {
@@ -254,5 +269,3 @@ class Floor {
         for (int i=0 ; i<6 ; ++i) classes[i].print();
     }
 }
-
-

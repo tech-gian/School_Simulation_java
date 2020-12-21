@@ -7,10 +7,12 @@
 package main_pac;
 
 
+// Import Random for random selection
+// of students-teachers
 import java.util.Random;
 
 
-// Import packages
+// Import local package
 import class_pac.*;
 
 
@@ -102,6 +104,5 @@ public class Main {
 
         // Empty School
         school.empty();
-
     }
 }
