@@ -10,9 +10,9 @@ package class_pac;
 // Person
 abstract class Person {
     // Private variables
-    private String name;
-    private int no_flo;
-    private int no_cls;
+    private String name;    // Person's name
+    private int no_flo;     // Person's floor_number
+    private int no_cls;     // Person's classroom_number
 
     // Package's variables
     boolean in_cls;
@@ -21,6 +21,7 @@ abstract class Person {
 
     // Constructor
     Person(String name, int nf, int nc) {
+        // Initialization
         this.name = name;
         this.no_flo = nf;
         this.no_cls = nc;

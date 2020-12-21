@@ -8,17 +8,19 @@
 package class_pac;
 
 
+
 // Room
 abstract class Room {
-    
-    Student student;
+    Student student;    // Temporary save of Student in Room
 
     // Constructor
     Room() {
+        this.student = null;
         System.out.println("A New Room has been created!");
     }
 
     // Enter student in room
+    // It will be written in children
     void enter(Student s) {}
 
     // Exit student from room
@@ -32,9 +34,9 @@ abstract class Room {
 
 // Yard
 class Yard extends Room {
-
     // Constructor
     Yard() {
+        // Initialization of super-class
         super();
 
         System.out.println("A New Yard has been created!");
@@ -43,6 +45,7 @@ class Yard extends Room {
     // Enter student in yard
     @Override
     void enter(Student s) {
+        // Temp save of Student
         this.student = s;
         System.out.println(s.get_name() + " enters schoolyard");
     }
@@ -50,6 +53,7 @@ class Yard extends Room {
     // Exit student 
     @Override
     Student exit() {
+        // Return Student
         System.out.println(this.student.get_name() + " exits schoolyard");
         return this.student;
     }
@@ -59,9 +63,9 @@ class Yard extends Room {
 
 // Stairs
 class Stairs extends Room {
-
     // Constructor
     Stairs() {
+        // Initialization of super-class
         super();
 
         System.out.println("A New Stairs has been created!");
@@ -70,6 +74,7 @@ class Stairs extends Room {
     // Enter student in stairs
     @Override
     void enter(Student s) {
+        // Temp save of Student
         this.student = s;
         System.out.println(s.get_name() + " enters stairs");
     }
@@ -77,6 +82,7 @@ class Stairs extends Room {
     // Exit student from stairs
     @Override
     Student exit() {
+        // Return Student
         System.out.println(this.student.get_name() + " exits stairs");
         return this.student;
     }
@@ -86,9 +92,9 @@ class Stairs extends Room {
 
 // Corridor
 class Corridor extends Room {
-
     // Constructor
     Corridor() {
+        // Initialization of super-class
         super();
 
         System.out.println("A New Corridor has been created!");
@@ -97,6 +103,7 @@ class Corridor extends Room {
     // Enter student in corridor
     @Override
     void enter(Student s) {
+        // Temp save of Student
         this.student = s;
         System.out.println(s.get_name() + " enters corridor");
     }
@@ -104,6 +111,7 @@ class Corridor extends Room {
     // Exit student from corridor
     @Override
     Student exit() {
+        // Return Student
         System.out.println(this.student.get_name() + " exits corridor");
         return this.student;
     }
@@ -113,18 +121,17 @@ class Corridor extends Room {
 
 // Classroom
 class Classroom {
+    private int no;             // Number of classroom
 
-    private int no;
+    private Teacher teacher;    // Teacher of classroom
+    private Student[] students; // Array of Students in classroom
+    private int size;           // Size of the array
 
-    private Teacher teacher;
-    private Student[] students;
-    private int size;
-
-    private int Cclass;
-
+    private int Cclass;         // Capacity of Array
 
     // Constructor
     Classroom(int no, int Cclass) {
+        // Initialization
         this.no = no;
         this.size = 0;
         this.Cclass = Cclass;
@@ -137,17 +144,19 @@ class Classroom {
 
     // Enter student in classroom
     void enter(Student s) {
-        if (size < Cclass) {
-            s.set_in();
-            this.students[size] = s;
-            this.size++;
-        }
+        // If classroom is full
+        if (size < Cclass) return;
+            
+        s.set_in();
+        this.students[size] = s;
+        this.size++;
 
         System.out.println(s.get_name() + " enters classroom");
     }
 
     // Exit student from classroom
     Student exit() {
+        // If class is empty
         if (size <= 0) return null;
 
         Student s = students[--size];
@@ -160,6 +169,7 @@ class Classroom {
 
     // Place teacher in classroom
     void place(Teacher t) {
+        // Teacher instant placement
         this.teacher = t;
         t.get_in();
 
@@ -168,18 +178,22 @@ class Classroom {
 
     // Teacher_out
     Teacher teacher_out() {
+        // If there is no teacher in classroom
         if (teacher == null) return null;
 
         System.out.println(teacher.get_name() + " teacher is out");
 
+        // Return teacher
         teacher.set_out();
         return teacher;
     }
 
     // Operate classroom
     void operate(int N, int Lj, int Ls, int Lt) {
+        // If there is a teacher
         if (teacher != null) this.teacher.teach(N, Lt);
 
+        // For students in classroom
         for (int i=0 ; i<size ; ++i) {
             if (students[i].get_cls() < 3) students[i].attend(N, Lj);
             else students[i].attend(N, Ls);
@@ -197,22 +211,20 @@ class Classroom {
 
         if (teacher != null) teacher.print();
     }
-
 }
 
 
 
 // Floor
-class Floor {
-    
-    private int no;
+class Floor {    
+    private int no;                 // Number of Floor
 
-    private Classroom[] classes;
-    private Corridor corridor;
-
+    private Classroom[] classes;    // Classrooms of Floor
+    private Corridor corridor;      // Corridod of Floor
 
     // Constructor
     Floor(int no, int Cclass) {
+        // Initialization
         this.no = no;
         this.classes = new Classroom[6];
         this.corridor = new Corridor();
@@ -226,6 +238,7 @@ class Floor {
     void enter(Student s) {
         System.out.println(s.get_name() + " enters floor");
 
+        // Get Student in Corridor and then out
         corridor.enter(s);
         s = corridor.exit();
 
@@ -235,10 +248,11 @@ class Floor {
     // Exit student from floor
     Student exit(int cls_no) {
         Student s = classes[cls_no].exit();
+
+        // Get Student in Corridor and then out
         corridor.enter(s);
         s = corridor.exit();
 
-        // If temp == null return null
         return s;
     }
 
