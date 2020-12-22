@@ -55,11 +55,14 @@ public class Main {
             teachers[i] = new Teacher("Teacher_name" + i, nf, i%6);
         }
 
+        // Creating rand
         Random rand = new Random();
         int i = 0;
         int j = 0;
         boolean stud;
 
+        // Loop to get students and teachers
+        // random in their classes
         while (true) {
             if (rand.nextInt(2) % 2 == 0) {
                 if (i >= size_stud) {
@@ -87,6 +90,7 @@ public class Main {
                 school.enter(students[k]);
             }
         }
+        // If there are teachers to enter school
         else {
             for (int k=j ; k<size_teacher ; ++k) {
                 school.place(teachers[k]);

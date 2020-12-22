@@ -12,6 +12,7 @@ public class Junior extends Student {
     
     // Constructor
     public Junior(String name, int nf, int nc) {
+        // Initialization of super-class
         super(name, nf, nc);
 
         System.out.println("A New Junior has been created!");
@@ -20,6 +21,7 @@ public class Junior extends Student {
     // Attend Junior
     @Override
     public void attend(int N, int L) {
+        // Add N * Lj
         this.tired += (N * L);
     }
 

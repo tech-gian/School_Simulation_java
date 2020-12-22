@@ -9,18 +9,17 @@ package class_pac;
 
 // School
 public class School {
-    
-    private Floor[] floors;
-    private Yard yard;
-    private Stairs stairs;
+    private Floor[] floors; // Array of Floors
+    private Yard yard;      // Schoolyard
+    private Stairs stairs;  // Stairs
 
-    private int Lj;
-    private int Ls;
-    private int Lt;
-
+    private int Lj;         // Units for Junior
+    private int Ls;         // Units for Senior
+    private int Lt;         // Units for Teacher
 
     // Constructor
     public School(int Lj, int Ls, int Lt, int Cclass) {
+        // Initialization
         this.Lj = Lj;
         this.Ls = Ls;
         this.Lt = Lt;
@@ -37,6 +36,7 @@ public class School {
     public void enter(Student s) {
         System.out.println(s.get_name() + " enters school");
 
+        // Get Student in yard, then stairs and finally in his floor
         yard.enter(s);
         s = yard.exit();
 
@@ -69,13 +69,15 @@ public class School {
         for (int i=0 ; i<3 ; ++i) {
             for (int k=0 ; k<6 ; ++k) {
                 for (int j=0 ; j<floors[i].get_ccls() ; ++j) {
+                    // Get Student from his floor to stairs
+                    // and then to yard
                     Student s = floors[i].exit(k);
 
                     stairs.enter(s);
                     s = stairs.exit();
 
                     yard.enter(s);
-                    s = yard.exit();
+                    yard.exit();
                 }
             }
         }
