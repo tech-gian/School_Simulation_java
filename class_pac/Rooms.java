@@ -25,7 +25,8 @@ abstract class Room {
 
     // Exit student from room
     Student exit() {
-        // CHECK temporary
+        // Return null just for no error.
+        // It ges override in children-classes
         return null;
     }
 }
@@ -145,11 +146,10 @@ class Classroom {
     // Enter student in classroom
     void enter(Student s) {
         // If classroom is full
-        if (size < Cclass) return;
+        if (size >= Cclass) return;
             
         s.set_in();
-        this.students[size] = s;
-        this.size++;
+        this.students[size++] = s;
 
         System.out.println(s.get_name() + " enters classroom");
     }

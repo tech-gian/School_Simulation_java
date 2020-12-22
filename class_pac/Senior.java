@@ -26,9 +26,6 @@ public class Senior extends Student {
     }
 
     // Print
-    // CHECK maybe you should just inherit
-    @Override
-    public void print() {
-        super.print();
-    }
+    // It just inherits the print from Person
+    // (it does the same thing)
 }
