@@ -3,9 +3,6 @@
 ///////////////////////////////////////
 
 
-// Naming package
-package main_pac;
-
 
 // Import Random for random selection
 // of students-teachers

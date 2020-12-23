@@ -1,4 +1,4 @@
-## 2020 Oop Project 1 - Exercise Java
+## 2020 Oop Project 3 - Exercise Java
 
 ## ΑΝΤΙΚΕΙΜΕΝΟΣΤΡΑΦΗΣ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ - 2020/2021 - Άσκηση Java
 
@@ -49,4 +49,10 @@ __Α.Μ.__: sdi1900059
     των κλάσεων και συναρτήσεων, φαίνεται στον ορισμό τους και έχει επιλεγεί έτσι ώστε ο χρήστης να
     έχει πρόσβαση μόνο σε ό,τι χρειάζεται για να τρέξει την main.
 
-    [ΠΡΟΣΘΕΣΕ εντολή μεταγλώτισης και τρεξίματος]
+    Η εντολή μεταγλώττισης είναι:
+        Για το package (στο folder class_pac): javac Person.java Student.java Junior.java Senior.java Teacher.java Rooms.java School.java
+        Για την Main (στο βασικό folder): javac Main.java
+    (πρέπει να γραφούν με αυτή την σειρά)
+
+    Για την εκτέλεση του προγράμματος, πηγαίνουμε στο βασικό folder που έχει δημιουργηθεί το Main.class και γράφουμε:
+        java Main Cclass Lj Ls Lt N (όπου τα Cclass, Lj, Ls, Lt, N είναι παράμετροι).
